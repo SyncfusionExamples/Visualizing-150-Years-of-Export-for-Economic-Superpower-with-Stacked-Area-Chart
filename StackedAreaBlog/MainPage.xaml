@@ -28,7 +28,7 @@
                 </DataTemplate>
             </chart:SfCartesianChart.Resources>
             <chart:SfCartesianChart.XAxes>
-                <chart:DateTimeAxis IsVisible="True" ShowMajorGridLines="False" PlotOffsetStart="20" PlotOffsetEnd="20" Interval="20" IntervalType="Years" LabelRotation="-45" EdgeLabelsDrawingMode="Center">
+                <chart:DateTimeAxis ShowMajorGridLines="False" PlotOffsetStart="20" PlotOffsetEnd="20" Interval="20" IntervalType="Years" LabelRotation="-45" EdgeLabelsDrawingMode="Center">
                 </chart:DateTimeAxis>
             </chart:SfCartesianChart.XAxes>
             <chart:SfCartesianChart.YAxes>
