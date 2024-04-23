@@ -5,12 +5,11 @@
              xmlns:local="clr-namespace:StackedAreaBlog"
              xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts">
     <ContentPage.BindingContext>
-        <local:ViewModel></local:ViewModel>
+        <local:ExportViewModel></local:ExportViewModel>
     </ContentPage.BindingContext>
     <Grid Padding="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
-            <!--<RowDefinition Height="8*"></RowDefinition>-->
         </Grid.RowDefinitions>
         <Border Stroke="#273c75" StrokeThickness="5">
         <chart:SfCartesianChart Grid.Row="0" VerticalOptions="Fill" HorizontalOptions="Fill" Margin="10,10,10,0">
@@ -19,7 +18,7 @@
                 <DataTemplate x:Key="labeltemplate" x:Name="template">
                     <Label TextColor="White" Background="{Binding Background}">
                         <Label.Text>
-                            <MultiBinding Converter="{StaticResource datalabelConverter}" ConverterParameter="{local:ViewModel}">
+                            <MultiBinding Converter="{StaticResource datalabelConverter}" ConverterParameter="{local:ExportViewModel}">
                                 <Binding Path="Index"/>
                                 <Binding Path="Label"/>
                                 <Binding/>
@@ -29,25 +28,24 @@
                 </DataTemplate>
             </chart:SfCartesianChart.Resources>
             <chart:SfCartesianChart.XAxes>
-                <chart:DateTimeAxis IsVisible="True" ShowMajorGridLines="False" PlotOffsetStart="20" PlotOffsetEnd="20" Interval="20" IntervalType="Years">
+                <chart:DateTimeAxis IsVisible="True" ShowMajorGridLines="False" PlotOffsetStart="20" PlotOffsetEnd="20" Interval="20" IntervalType="Years" LabelRotation="-45" EdgeLabelsDrawingMode="Center">
                 </chart:DateTimeAxis>
             </chart:SfCartesianChart.XAxes>
             <chart:SfCartesianChart.YAxes>
-                <chart:NumericalAxis ShowMinorGridLines="False" ShowMajorGridLines="False" Maximum="100" IsVisible="True">
+                <chart:NumericalAxis ShowMinorGridLines="False" ShowMajorGridLines="False" Maximum="80" IsVisible="True">
                     <chart:NumericalAxis.LabelStyle>
                         <chart:ChartAxisLabelStyle LabelFormat="0'%"></chart:ChartAxisLabelStyle>
                     </chart:NumericalAxis.LabelStyle>
                 </chart:NumericalAxis>
             </chart:SfCartesianChart.YAxes>
-            <local:StackingAreaExt ItemsSource="{Binding StackedData }" x:Name="series"
+                <local:StackingAreaExt ItemsSource="{Binding ExportData}" x:Name="series"
                                       XBindingPath="Year"
                                       YBindingPath="China"
                                       Fill="#FF6689"
                                       ShowDataLabels="True"
                                       LabelTemplate="{StaticResource labeltemplate}"
                                       Label="CHINA"
-                                      LabelContext="YValue"
-                              >
+                                      LabelContext="YValue">
                 <local:StackingAreaExt.DataLabelSettings>
                     <chart:CartesianDataLabelSettings BarAlignment="Middle">
                         <chart:CartesianDataLabelSettings.LabelStyle>
@@ -56,15 +54,14 @@
                     </chart:CartesianDataLabelSettings>
                 </local:StackingAreaExt.DataLabelSettings>
             </local:StackingAreaExt>
-            <local:StackingAreaExt ItemsSource="{Binding StackedData }"
-                          XBindingPath="Year"
-                          YBindingPath="US"
-                                      Fill="#3956DB"
-                                      ShowDataLabels="True"
-LabelTemplate="{StaticResource labeltemplate}"
-                                   Label="U.S."
-                                   LabelContext="YValue"
-                               >
+                <local:StackingAreaExt ItemsSource="{Binding ExportData }"
+                                       XBindingPath="Year"
+                                       YBindingPath="US"
+                                       Fill="#3956DB"
+                                       ShowDataLabels="True"
+                                       LabelTemplate="{StaticResource labeltemplate}"
+                                       Label="U.S."
+                                       LabelContext="YValue">
                 <local:StackingAreaExt.DataLabelSettings>
                     <chart:CartesianDataLabelSettings LabelPlacement="Auto">
                         <chart:CartesianDataLabelSettings.LabelStyle>
@@ -73,14 +70,14 @@ LabelTemplate="{StaticResource labeltemplate}"
                     </chart:CartesianDataLabelSettings>
                 </local:StackingAreaExt.DataLabelSettings>
             </local:StackingAreaExt>
-            <local:StackingAreaExt ItemsSource="{Binding StackedData }"
-                          XBindingPath="Year"
-                          YBindingPath="Germany"
-                                      Fill="#ff7705"
-                                                                            ShowDataLabels="True"
-LabelTemplate="{StaticResource labeltemplate}"
-                                   Label="GERMANY"
-                                   LabelContext="YValue">
+                <local:StackingAreaExt ItemsSource="{Binding ExportData }"
+                                       XBindingPath="Year"
+                                       YBindingPath="Germany"
+                                       Fill="#ff7705"
+                                       ShowDataLabels="True"
+                                       LabelTemplate="{StaticResource labeltemplate}"
+                                       Label="GERMANY"
+                                       LabelContext="YValue">
                 <local:StackingAreaExt.DataLabelSettings>
                     <chart:CartesianDataLabelSettings LabelPlacement="Inner">
                         <chart:CartesianDataLabelSettings.LabelStyle>
@@ -89,14 +86,13 @@ LabelTemplate="{StaticResource labeltemplate}"
                     </chart:CartesianDataLabelSettings>
                 </local:StackingAreaExt.DataLabelSettings>
             </local:StackingAreaExt>
-            <local:StackingAreaExt ItemsSource="{Binding StackedData }"
-                          XBindingPath="Year"
-                          YBindingPath="Japan"
-                                      Fill="#FFC943"
-                                      ShowDataLabels="True"
-LabelTemplate="{StaticResource labeltemplate}"
-                                   Label="JAPAN"
-                                   >
+                <local:StackingAreaExt ItemsSource="{Binding ExportData }"
+                                       XBindingPath="Year"                         
+                                       YBindingPath="Japan"
+                                       Fill="#FFC943"
+                                       ShowDataLabels="True"
+                                       LabelTemplate="{StaticResource labeltemplate}"
+                                       Label="JAPAN">
                 <local:StackingAreaExt.DataLabelSettings>
                     <chart:CartesianDataLabelSettings LabelPlacement="Auto">
                         <chart:CartesianDataLabelSettings.LabelStyle>
@@ -105,14 +101,13 @@ LabelTemplate="{StaticResource labeltemplate}"
                     </chart:CartesianDataLabelSettings>
                 </local:StackingAreaExt.DataLabelSettings>
             </local:StackingAreaExt>
-            <local:StackingAreaExt ItemsSource="{Binding StackedData }"
-                          XBindingPath="Year"
-                          YBindingPath="UK"
-                                      Fill="#1B78B5"
-                                      ShowDataLabels="True"
-LabelTemplate="{StaticResource labeltemplate}"
-                                   Label="UK"
-                                  >
+                <local:StackingAreaExt ItemsSource="{Binding ExportData }"
+                                       XBindingPath="Year"
+                                       YBindingPath="UK"
+                                       Fill="#1B78B5"
+                                       ShowDataLabels="True"
+                                       LabelTemplate="{StaticResource labeltemplate}"
+                                       Label="UK">
                 <local:StackingAreaExt.DataLabelSettings>
                     <chart:CartesianDataLabelSettings>
                         <chart:CartesianDataLabelSettings.LabelStyle>
@@ -127,18 +122,16 @@ LabelTemplate="{StaticResource labeltemplate}"
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="3*"></ColumnDefinition>
-                        <ColumnDefinition Width="7*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Image Grid.Row="0" Grid.Column="0" Source="cargoship.jpg" HeightRequest="300"  VerticalOptions="Start" HorizontalOptions="Start" WidthRequest="500" Margin="-100,0,0,0"></Image>
-                    <AbsoluteLayout Grid.Row="0" Grid.Column="1">
-                        <Image Source="stockship1.jpg" AbsoluteLayout.LayoutBounds="200,80,700,400"></Image>
-                        <Label Text="Japan's growth in electronic goods production briefly made it one of the world's largest exporter" WidthRequest="230" Background="#FFC943" AbsoluteLayout.LayoutBounds="500,270" HorizontalTextAlignment="Center"></Label>
-                        <Label Text="The World's dominant exporters have shifted since 1890,with modern economic powerhouses replacing traditional superpowers" HorizontalTextAlignment="Center" AbsoluteLayout.LayoutBounds="150,100" WidthRequest="400"></Label>
-                        <Label Text="Merchandise Exports Share 1870-2022" Background="#FFC943" FontAttributes="Bold" HorizontalTextAlignment="Center" WidthRequest="300" AbsoluteLayout.LayoutBounds="180,80"></Label>
-                        <Label Text="150 Years of Exports" FontSize="80" Margin="0,-20,0,0"></Label>
-                    </AbsoluteLayout>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <VerticalStackLayout Grid.Row="0" Grid.Column="0">
+                            <Label Text="Export Dynamics: 150 Years of Economic Superpowers" HorizontalTextAlignment="Center"  FontSize="50" WidthRequest="1000" FontAttributes="Bold"></Label>
+                            <Label Text="Merchandise Exports Share 1870-2022" Background="#FFC943" FontAttributes="Bold" HorizontalTextAlignment="Center" WidthRequest="300" />
+                            <Label Text="The World's dominant exporters have shifted since 1890,with modern economic powerhouses replacing traditional superpowers" HorizontalTextAlignment="Center" ></Label>
+                            <Label Text="Japan's growth in electronic goods production briefly made it one of the world's largest exporter" WidthRequest="230" Background="#FFC943" HorizontalTextAlignment="Center" HorizontalOptions="End" Margin="0,25,180,0" BackgroundColor="Red">
+                            </Label>
+                        </VerticalStackLayout>
                 </Grid>
             </chart:SfCartesianChart.PlotAreaBackgroundView>
         </chart:SfCartesianChart>

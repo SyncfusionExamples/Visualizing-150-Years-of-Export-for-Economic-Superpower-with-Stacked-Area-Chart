@@ -58,6 +58,7 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\cargoship.jpg" />
+	  <None Remove="Resources\Images\ship.png" />
 	  <None Remove="Resources\Images\stockship1.jpg" />
 	</ItemGroup>
 
