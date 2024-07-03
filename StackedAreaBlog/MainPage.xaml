@@ -11,129 +11,106 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Border Stroke="#273c75" StrokeThickness="5">
-        <chart:SfCartesianChart Grid.Row="0" VerticalOptions="Fill" HorizontalOptions="Fill" Margin="10,10,10,0">
-            <chart:SfCartesianChart.Resources>
-                <local:Converter x:Key="datalabelConverter"></local:Converter>
-                <DataTemplate x:Key="labeltemplate" x:Name="template">
-                    <Label TextColor="White" Background="{Binding Background}">
-                        <Label.Text>
-                            <MultiBinding Converter="{StaticResource datalabelConverter}" ConverterParameter="{local:ExportViewModel}">
-                                <Binding Path="Index"/>
-                                <Binding Path="Label"/>
-                                <Binding/>
-                            </MultiBinding>
-                        </Label.Text>
-                    </Label>
-                </DataTemplate>
-            </chart:SfCartesianChart.Resources>
-            <chart:SfCartesianChart.XAxes>
-                <chart:DateTimeAxis ShowMajorGridLines="False" PlotOffsetStart="20" PlotOffsetEnd="20" Interval="20" IntervalType="Years" LabelRotation="-45" EdgeLabelsDrawingMode="Center">
+        <Border Stroke="#273c75" StrokeThickness="3">
+            <chart:SfCartesianChart Grid.Row="0" VerticalOptions="Fill" HorizontalOptions="Fill" Margin="10,10,10,0">
+                <chart:SfCartesianChart.XAxes>
+                <chart:DateTimeAxis ShowMajorGridLines="False" Interval="20" IntervalType="Years" LabelRotation="-45" EdgeLabelsDrawingMode="Center">
                 </chart:DateTimeAxis>
             </chart:SfCartesianChart.XAxes>
-            <chart:SfCartesianChart.YAxes>
-                <chart:NumericalAxis ShowMinorGridLines="False" ShowMajorGridLines="False" Maximum="80" IsVisible="True">
-                    <chart:NumericalAxis.LabelStyle>
-                        <chart:ChartAxisLabelStyle LabelFormat="0'%"></chart:ChartAxisLabelStyle>
-                    </chart:NumericalAxis.LabelStyle>
-                </chart:NumericalAxis>
-            </chart:SfCartesianChart.YAxes>
-                <local:StackingAreaExt ItemsSource="{Binding ExportData}" x:Name="series"
+                <chart:SfCartesianChart.YAxes>
+                    <chart:NumericalAxis ShowMinorGridLines="False" ShowMajorGridLines="False" Maximum="80" Interval="10" EdgeLabelsVisibilityMode="Visible" >
+                        <chart:NumericalAxis.LabelStyle>
+                            <chart:ChartAxisLabelStyle LabelFormat="0'%"></chart:ChartAxisLabelStyle>
+                        </chart:NumericalAxis.LabelStyle>
+                    </chart:NumericalAxis>
+                </chart:SfCartesianChart.YAxes>
+                <chart:StackingAreaSeries ItemsSource="{Binding ExportData}" x:Name="series"
                                       XBindingPath="Year"
                                       YBindingPath="China"
-                                      Fill="#FF6689"
-                                      ShowDataLabels="True"
-                                      LabelTemplate="{StaticResource labeltemplate}"
-                                      Label="CHINA"
-                                      LabelContext="YValue">
-                <local:StackingAreaExt.DataLabelSettings>
-                    <chart:CartesianDataLabelSettings BarAlignment="Middle">
-                        <chart:CartesianDataLabelSettings.LabelStyle>
-                            <chart:ChartDataLabelStyle  Background="#FF6689"></chart:ChartDataLabelStyle>
-                        </chart:CartesianDataLabelSettings.LabelStyle>
-                    </chart:CartesianDataLabelSettings>
-                </local:StackingAreaExt.DataLabelSettings>
-            </local:StackingAreaExt>
-                <local:StackingAreaExt ItemsSource="{Binding ExportData }"
+                                      Fill="#e64d5c"                                                                         
+                                     />
+
+                <chart:StackingAreaSeries ItemsSource="{Binding ExportData }"
                                        XBindingPath="Year"
                                        YBindingPath="US"
-                                       Fill="#3956DB"
-                                       ShowDataLabels="True"
-                                       LabelTemplate="{StaticResource labeltemplate}"
-                                       Label="U.S."
-                                       LabelContext="YValue">
-                <local:StackingAreaExt.DataLabelSettings>
-                    <chart:CartesianDataLabelSettings LabelPlacement="Auto">
-                        <chart:CartesianDataLabelSettings.LabelStyle>
-                            <chart:ChartDataLabelStyle Background="#3956DB" ></chart:ChartDataLabelStyle>
-                        </chart:CartesianDataLabelSettings.LabelStyle>
-                    </chart:CartesianDataLabelSettings>
-                </local:StackingAreaExt.DataLabelSettings>
-            </local:StackingAreaExt>
-                <local:StackingAreaExt ItemsSource="{Binding ExportData }"
+                                       Fill="#008080"                                       
+                                       />
+                
+                <chart:StackingAreaSeries ItemsSource="{Binding ExportData }"
                                        XBindingPath="Year"
                                        YBindingPath="Germany"
-                                       Fill="#ff7705"
-                                       ShowDataLabels="True"
-                                       LabelTemplate="{StaticResource labeltemplate}"
-                                       Label="GERMANY"
-                                       LabelContext="YValue">
-                <local:StackingAreaExt.DataLabelSettings>
-                    <chart:CartesianDataLabelSettings LabelPlacement="Inner">
-                        <chart:CartesianDataLabelSettings.LabelStyle>
-                            <chart:ChartDataLabelStyle Background="#ff7705"></chart:ChartDataLabelStyle>
-                        </chart:CartesianDataLabelSettings.LabelStyle>
-                    </chart:CartesianDataLabelSettings>
-                </local:StackingAreaExt.DataLabelSettings>
-            </local:StackingAreaExt>
-                <local:StackingAreaExt ItemsSource="{Binding ExportData }"
+                                       Fill="#DAA520"                                       
+                                      />
+                
+                <chart:StackingAreaSeries ItemsSource="{Binding ExportData }"
                                        XBindingPath="Year"                         
                                        YBindingPath="Japan"
-                                       Fill="#FFC943"
-                                       ShowDataLabels="True"
-                                       LabelTemplate="{StaticResource labeltemplate}"
-                                       Label="JAPAN">
-                <local:StackingAreaExt.DataLabelSettings>
-                    <chart:CartesianDataLabelSettings LabelPlacement="Auto">
-                        <chart:CartesianDataLabelSettings.LabelStyle>
-                            <chart:ChartDataLabelStyle Background="#FFC943"></chart:ChartDataLabelStyle>
-                        </chart:CartesianDataLabelSettings.LabelStyle>
-                    </chart:CartesianDataLabelSettings>
-                </local:StackingAreaExt.DataLabelSettings>
-            </local:StackingAreaExt>
-                <local:StackingAreaExt ItemsSource="{Binding ExportData }"
+                                       Fill="#FFD700"                                                                                                                     
+                                      />
+                
+                <chart:StackingAreaSeries ItemsSource="{Binding ExportData }"
                                        XBindingPath="Year"
                                        YBindingPath="UK"
-                                       Fill="#1B78B5"
-                                       ShowDataLabels="True"
-                                       LabelTemplate="{StaticResource labeltemplate}"
-                                       Label="UK">
-                <local:StackingAreaExt.DataLabelSettings>
-                    <chart:CartesianDataLabelSettings>
-                        <chart:CartesianDataLabelSettings.LabelStyle>
-                            <chart:ChartDataLabelStyle Background="#1B78B5"></chart:ChartDataLabelStyle>
-                        </chart:CartesianDataLabelSettings.LabelStyle>
-                    </chart:CartesianDataLabelSettings>
-                </local:StackingAreaExt.DataLabelSettings>
+                                       Fill="#4682B4"                                                                               
+                                       />
+                <chart:SfCartesianChart.Annotations>
+                    <chart:TextAnnotation X1="2010-12-31" Y1="{OnPlatform Android='6',Default='6'}" Text="CHINA">
+                        <chart:TextAnnotation.LabelStyle>
+                            <chart:ChartAnnotationLabelStyle TextColor="White" FontSize="20"/>
+                        </chart:TextAnnotation.LabelStyle>
+                    </chart:TextAnnotation>
+                    <chart:TextAnnotation X1="1945-12-31" Y1="{OnPlatform Android=14,Default=12}" Text="U.S.">
+                        <chart:TextAnnotation.LabelStyle>
+                            <chart:ChartAnnotationLabelStyle TextColor="White" FontSize="20"/>
+                        </chart:TextAnnotation.LabelStyle>
+                    </chart:TextAnnotation>
+                    <chart:TextAnnotation X1="1910-12-31" Y1="{OnPlatform Android=21,Default=19}" Text="GERMANY">
+                        <chart:TextAnnotation.LabelStyle>
+                            <chart:ChartAnnotationLabelStyle TextColor="White" FontSize="20" HorizontalTextAlignment="End"/>
+                        </chart:TextAnnotation.LabelStyle>
+                    </chart:TextAnnotation>
+                    <chart:TextAnnotation X1="1992-12-31" Y1="{OnPlatform Android=30.5,Default=30}" Text="JAPAN">
+                        <chart:TextAnnotation.LabelStyle>
+                            <chart:ChartAnnotationLabelStyle TextColor="White" FontSize="20"/>
+                        </chart:TextAnnotation.LabelStyle>
+                    </chart:TextAnnotation>
+                    <chart:TextAnnotation X1="1912-12-31" Y1="{OnPlatform Android=43,Default=43}" Text="UK">
+                        <chart:TextAnnotation.LabelStyle>
+                            <chart:ChartAnnotationLabelStyle TextColor="White" FontSize="20"/>
+                        </chart:TextAnnotation.LabelStyle>
+                    </chart:TextAnnotation>
+                    <chart:TextAnnotation X1="1905-12-31" Y1="41" x:Name="textAnnotation">
+                        <chart:TextAnnotation.LabelStyle>
+                            <chart:ChartAnnotationLabelStyle TextColor="White" HorizontalTextAlignment="End" VerticalTextAlignment="End"/>
+                        </chart:TextAnnotation.LabelStyle>
+                    </chart:TextAnnotation>
 
-            </local:StackingAreaExt>
-            <chart:SfCartesianChart.PlotAreaBackgroundView>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"></RowDefinition>
-                    </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <VerticalStackLayout Grid.Row="0" Grid.Column="0">
-                            <Label Text="Export Dynamics: 150 Years of Economic Superpowers" HorizontalTextAlignment="Center"  FontSize="50" WidthRequest="1000" FontAttributes="Bold"></Label>
-                            <Label Text="Merchandise Exports Share 1870-2022" Background="#FFC943" FontAttributes="Bold" HorizontalTextAlignment="Center" WidthRequest="300" />
-                            <Label Text="The World's dominant exporters have shifted since 1890,with modern economic powerhouses replacing traditional superpowers" HorizontalTextAlignment="Center" ></Label>
-                            <Label Text="Japan's growth in electronic goods production briefly made it one of the world's largest exporter" WidthRequest="230" Background="#FFC943" HorizontalTextAlignment="Center" HorizontalOptions="End" Margin="0,25,180,0" BackgroundColor="Red">
-                            </Label>
-                        </VerticalStackLayout>
-                </Grid>
-            </chart:SfCartesianChart.PlotAreaBackgroundView>
+                    <chart:EllipseAnnotation X1="1990-01-01" Y1="33" Fill="#FFC943" Stroke="#FFC943" IsVisible="{OnPlatform Android='False',iOS='False'}"/>
+                    <chart:LineAnnotation X1="1990-01-01" Y1="33" X2="1990-01-01" Y2="45" Stroke="#FFC943" IsVisible="{OnPlatform Android='False',iOS='False'}"/>
+                    <chart:TextAnnotation X1="1980-01-01" Y1="45" x:Name="japanText">
+                        <chart:TextAnnotation.LabelStyle>
+                            <chart:ChartAnnotationLabelStyle HorizontalTextAlignment="End" VerticalTextAlignment="Start" Background="White" Stroke="#FFC943" StrokeWidth="2"/>
+                        </chart:TextAnnotation.LabelStyle>
+                    </chart:TextAnnotation>
+
+                    <chart:ViewAnnotation X1="{OnPlatform Android='100',Default='150'}" Y1="{OnPlatform Android='40',Default='120'}" CoordinateUnit="Pixel">
+                        <chart:ViewAnnotation.View>
+                            <Image Source="ship.png" HeightRequest="{OnPlatform Android='150',Default='300'}" WidthRequest="{OnPlatform Android='300',Default='400'}" />
+                        </chart:ViewAnnotation.View>
+                    </chart:ViewAnnotation>
+
+                    <chart:TextAnnotation X1="{OnPlatform Android='1936-01-01',Default='1930-01-01'}" Y1="{OnPlatform Android='70',Default='78'}" x:Name="titleText">
+                        <chart:TextAnnotation.LabelStyle>
+                            <chart:ChartAnnotationLabelStyle FontAttributes="Bold" FontSize="30" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
+                        </chart:TextAnnotation.LabelStyle>
+                    </chart:TextAnnotation>
+
+                    <chart:TextAnnotation X1="1945-01-01" Y1="{OnPlatform Android='62',Default='74'}" Text="Merchandise Export Share 1900-2022">
+                        <chart:TextAnnotation.LabelStyle>
+                            <chart:ChartAnnotationLabelStyle HorizontalTextAlignment="End" VerticalTextAlignment="End" FontSize="{OnPlatform Android='12',Default='16'}" FontAttributes="Bold" Background="#FFC943"/>
+                        </chart:TextAnnotation.LabelStyle>
+                    </chart:TextAnnotation>
+            </chart:SfCartesianChart.Annotations>
         </chart:SfCartesianChart>
         </Border>
     </Grid>

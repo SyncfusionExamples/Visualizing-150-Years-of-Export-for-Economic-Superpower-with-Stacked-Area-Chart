@@ -57,16 +57,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\cargoship.jpg" />
 	  <None Remove="Resources\Images\ship.png" />
-	  <None Remove="Resources\Images\stockship1.jpg" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
-		<PackageReference Include="Syncfusion.Maui.Charts" Version="25.1.40" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\MAUICHARTS\Annotation\maui-charts\maui\src\charts\Syncfusion.Maui.Charts.csproj" />
 	</ItemGroup>
 
 </Project>
