@@ -8,14 +8,14 @@ namespace StackedAreaBlog
 {
     public class ExportModel
     {
-        public DateTime Year {  get; set; } 
-        public double UK {  get; set; }
+        public DateTime Year { get; set; }
+        public double UK { get; set; }
         public double Germany { get; set; }
-        public double US {  get; set; }
+        public double US { get; set; }
         public double Japan { get; set; }
         public double China { get; set; }
 
-        
+
         public ExportModel()
         {
 

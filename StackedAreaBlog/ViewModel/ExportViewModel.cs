@@ -9,8 +9,8 @@ namespace StackedAreaBlog
         public ExportViewModel()
         {
             ExportData = new ObservableCollection<ExportModel>();
-            ExportData.Add(new ExportModel() { Year = new DateTime(1900, 01, 01), China = 2.8, US = 5.0, Germany = 13.4, Japan = 0.1, UK = 24.3 });
             ExportData.Add(new ExportModel() { Year = new DateTime(1913, 01, 01), China = 2.0, US = 9.0, Germany = 18.0, Japan = 0.8, UK = 18.5 });
+            ExportData.Add(new ExportModel() { Year = new DateTime(1929, 01, 01), China = 2.4, US = 11.5, Germany = 13.3, Japan = 1.7, UK = 12.2 });
             ExportData.Add(new ExportModel() { Year = new DateTime(1950, 01, 01), China = 2.1, US = 14.6, Germany = 4.5, Japan = 1.2, UK = 13.3 });
             ExportData.Add(new ExportModel() { Year = new DateTime(1973, 01, 01), China = 0.7, US = 10.3, Germany = 11.5, Japan = 5.6, UK = 5.6 });
             ExportData.Add(new ExportModel() { Year = new DateTime(1990, 01, 01), China = 1.8, US = 11.3, Germany = 12.0, Japan = 8.2, UK = 5.3 });
