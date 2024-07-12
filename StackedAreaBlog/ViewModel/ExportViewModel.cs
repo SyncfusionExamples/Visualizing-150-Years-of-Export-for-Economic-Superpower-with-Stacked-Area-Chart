@@ -19,7 +19,7 @@ namespace StackedAreaBlog
             ExportData.Add(new ExportModel() { Year = new DateTime(2010, 01, 01), China = 10.3, US = 8.4, Germany = 8.2, Japan = 5.0, UK = 2.7 });
             ExportData.Add(new ExportModel() { Year = new DateTime(2012, 01, 01), China = 11.1, US = 8.4, Germany = 7.6, Japan = 4.3, UK = 2.6 });
             ExportData.Add(new ExportModel() { Year = new DateTime(2019, 01, 01), China = 13.2, US = 8.6, Germany = 7.8, Japan = 3.7, UK = 2.4 });
-            ExportData.Add(new ExportModel() { Year = new DateTime(2022, 01, 01), China = 14.8, US = 8.5, Germany = 6.8, Japan = 3.1, UK = 2.2 });
+            ExportData.Add(new ExportModel() { Year = new DateTime(2022, 01, 01), China = 14.4, US = 8.3, Germany = 6.6, Japan = 3.0, UK = 2.1 });
         }
     }
 }

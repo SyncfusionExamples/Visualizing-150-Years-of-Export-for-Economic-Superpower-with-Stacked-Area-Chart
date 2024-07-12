@@ -18,7 +18,7 @@
                 </chart:DateTimeAxis>
             </chart:SfCartesianChart.XAxes>
                 <chart:SfCartesianChart.YAxes>
-                    <chart:NumericalAxis ShowMinorGridLines="False" ShowMajorGridLines="False" Maximum="80" Interval="10" EdgeLabelsVisibilityMode="Visible" >
+                    <chart:NumericalAxis ShowMinorGridLines="False" ShowMajorGridLines="False" Maximum="80" Interval="{OnPlatform Android='20',iOS='20',Default='10'}" EdgeLabelsVisibilityMode="Visible" >
                         <chart:NumericalAxis.LabelStyle>
                             <chart:ChartAxisLabelStyle LabelFormat="0'%"></chart:ChartAxisLabelStyle>
                         </chart:NumericalAxis.LabelStyle>
@@ -59,7 +59,7 @@
                             <chart:ChartAnnotationLabelStyle TextColor="White" FontSize="20"/>
                         </chart:TextAnnotation.LabelStyle>
                     </chart:TextAnnotation>
-                    <chart:TextAnnotation X1="1945-12-31" Y1="12" Text="U.S.">
+                    <chart:TextAnnotation X1="1945-12-31" Y1="11" Text="U.S.">
                         <chart:TextAnnotation.LabelStyle>
                             <chart:ChartAnnotationLabelStyle TextColor="White" FontSize="20"/>
                         </chart:TextAnnotation.LabelStyle>
@@ -69,7 +69,7 @@
                             <chart:ChartAnnotationLabelStyle TextColor="White" FontSize="20" HorizontalTextAlignment="End"/>
                         </chart:TextAnnotation.LabelStyle>
                     </chart:TextAnnotation>
-                    <chart:TextAnnotation X1="1990-12-31" Y1="{OnPlatform Android=30.5,iOS=30.5,Default=30}" Text="JAPAN">
+                    <chart:TextAnnotation X1="1990-12-31" Y1="30" Text="JAPAN">
                         <chart:TextAnnotation.LabelStyle>
                             <chart:ChartAnnotationLabelStyle TextColor="White" FontSize="20"/>
                         </chart:TextAnnotation.LabelStyle>
@@ -95,13 +95,13 @@
 
                     <chart:ViewAnnotation X1="{OnPlatform Android='100',iOS='100',Default='150'}" Y1="{OnPlatform Android='40',iOS='40',Default='120'}" CoordinateUnit="Pixel">
                         <chart:ViewAnnotation.View>
-                            <Image Source="ship.png" HeightRequest="{OnPlatform Android='150',iOS='150',Default='300'}" WidthRequest="{OnPlatform Android='300',iOS='300',Default='400'}"/>
+                            <Image Source="ship.png" HeightRequest="{OnPlatform Android='130',iOS='130',Default='300'}" WidthRequest="{OnPlatform Android='280',iOS='280',Default='400'}"/>
                         </chart:ViewAnnotation.View>
                     </chart:ViewAnnotation>
 
-                    <chart:TextAnnotation X1="{OnPlatform Android='1936-01-01',iOS='1936-01-01',Default='1932-01-01'}" Y1="{OnPlatform Android='70',iOS='70',Default='78'}" x:Name="titleText">
+                    <chart:TextAnnotation X1="{OnPlatform Android='1942-01-01',iOS='1942-01-01',Default='1932-01-01'}" Y1="{OnPlatform Android='70',iOS='70',Default='78'}" x:Name="titleText">
                         <chart:TextAnnotation.LabelStyle>
-                            <chart:ChartAnnotationLabelStyle FontAttributes="Bold" FontSize="30" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
+                            <chart:ChartAnnotationLabelStyle FontAttributes="Bold" FontSize="{OnPlatform Android='25',iOS='25',Default='30'}" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
                         </chart:TextAnnotation.LabelStyle>
                     </chart:TextAnnotation>
 
