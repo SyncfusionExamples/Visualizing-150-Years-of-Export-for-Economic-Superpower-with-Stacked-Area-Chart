@@ -13,6 +13,9 @@
         </Grid.RowDefinitions>
         <Border Stroke="#273c75" StrokeThickness="3">
             <chart:SfCartesianChart Grid.Row="0" VerticalOptions="Fill" HorizontalOptions="Fill" Margin="10,10,10,0">
+                <chart:SfCartesianChart.Title>
+                    <Label Text="100+ Years of Global Trade: Economic Superpowers" x:Name="titleText" FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Center" FontFamily="Calbri"/>
+                </chart:SfCartesianChart.Title>
                 <chart:SfCartesianChart.XAxes>
                 <chart:DateTimeAxis ShowMajorGridLines="False" Interval="20" IntervalType="Years" LabelRotation="-45" EdgeLabelsDrawingMode="Center">
                 </chart:DateTimeAxis>
@@ -99,13 +102,7 @@
                         </chart:ViewAnnotation.View>
                     </chart:ViewAnnotation>
 
-                    <chart:TextAnnotation X1="{OnPlatform Android='1942-01-01',iOS='1942-01-01',Default='1932-01-01'}" Y1="{OnPlatform Android='70',iOS='70',Default='78'}" x:Name="titleText">
-                        <chart:TextAnnotation.LabelStyle>
-                            <chart:ChartAnnotationLabelStyle FontAttributes="Bold" FontSize="{OnPlatform Android='25',iOS='25',Default='30'}" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
-                        </chart:TextAnnotation.LabelStyle>
-                    </chart:TextAnnotation>
-
-                    <chart:TextAnnotation X1="1950-01-01" Y1="{OnPlatform Android='62',iOS='62',Default='74'}" Text="Merchandise Export Share 1900-2022">
+                    <chart:TextAnnotation X1="1950-01-01" Y1="{OnPlatform Android='75',iOS='75',Default='78'}" Text="Merchandise Export Share 1900-2022">
                         <chart:TextAnnotation.LabelStyle>
                             <chart:ChartAnnotationLabelStyle HorizontalTextAlignment="End" VerticalTextAlignment="End" FontSize="{OnPlatform Android='12',iOS='12',Default='16'}" FontAttributes="Bold" Background="#FFC943"/>
                         </chart:TextAnnotation.LabelStyle>
