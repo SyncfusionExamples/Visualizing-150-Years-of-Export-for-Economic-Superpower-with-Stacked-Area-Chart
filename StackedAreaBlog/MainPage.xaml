@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StackedAreaBlog.MainPage"
+             xmlns:local="clr-namespace:StackedAreaBlog"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts">
+    <ContentPage.BindingContext>
+        <local:ExportViewModel></local:ExportViewModel>
+    </ContentPage.BindingContext>
+    <Grid Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Stroke="#273c75" StrokeThickness="3">
+            <chart:SfCartesianChart Grid.Row="0" VerticalOptions="Fill" HorizontalOptions="Fill" Margin="10,10,10,0">
+                <chart:SfCartesianChart.Title>
+                    <Label Text="100+ Years of Global Trade: Economic Superpowers" x:Name="titleText" FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Center" FontFamily="Calbri"/>
+                </chart:SfCartesianChart.Title>
+                <chart:SfCartesianChart.XAxes>
+                <chart:DateTimeAxis ShowMajorGridLines="False" Interval="20" IntervalType="Years" LabelRotation="-45" EdgeLabelsDrawingMode="Center">
+                </chart:DateTimeAxis>
+            </chart:SfCartesianChart.XAxes>
+                <chart:SfCartesianChart.YAxes>
+                    <chart:NumericalAxis ShowMinorGridLines="False" ShowMajorGridLines="False" Maximum="80" Interval="{OnPlatform Android='20',iOS='20',Default='10'}" EdgeLabelsVisibilityMode="Visible" >
+                        <chart:NumericalAxis.LabelStyle>
+                            <chart:ChartAxisLabelStyle LabelFormat="0'%"></chart:ChartAxisLabelStyle>
+                        </chart:NumericalAxis.LabelStyle>
+                    </chart:NumericalAxis>
+                </chart:SfCartesianChart.YAxes>
+                <chart:StackingAreaSeries ItemsSource="{Binding ExportData}" x:Name="series"
+                                      XBindingPath="Year"
+                                      YBindingPath="China"
+                                      Fill="#e64d5c"/>
+
+                <chart:StackingAreaSeries ItemsSource="{Binding ExportData }"
+                                       XBindingPath="Year"
+                                       YBindingPath="US"
+                                       Fill="#008080"/>
+
+                <chart:StackingAreaSeries ItemsSource="{Binding ExportData }"
+                                       XBindingPath="Year"
+                                       YBindingPath="Germany"
+                                       Fill="#DAA520"/>
+
+                <chart:StackingAreaSeries ItemsSource="{Binding ExportData }"
+                                       XBindingPath="Year"                         
+                                       YBindingPath="Japan"
+                                       Fill="#FFD700"/>
+
+                <chart:StackingAreaSeries ItemsSource="{Binding ExportData }"
+                                       XBindingPath="Year"
+                                       YBindingPath="UK"
+                                       Fill="#4682B4"/>
+
+                <chart:SfCartesianChart.Annotations>
+                    <chart:TextAnnotation X1="2010-12-31" Y1="6" Text="CHINA">
+                        <chart:TextAnnotation.LabelStyle>
+                            <chart:ChartAnnotationLabelStyle TextColor="White" FontSize="20"/>
+                        </chart:TextAnnotation.LabelStyle>
+                    </chart:TextAnnotation>
+                    <chart:TextAnnotation X1="1945-12-31" Y1="11" Text="U.S.">
+                        <chart:TextAnnotation.LabelStyle>
+                            <chart:ChartAnnotationLabelStyle TextColor="White" FontSize="20"/>
+                        </chart:TextAnnotation.LabelStyle>
+                    </chart:TextAnnotation>
+                    <chart:TextAnnotation X1="1920-12-31" Y1="{OnPlatform Android=21,iOS=21,Default=20}" Text="GERMANY">
+                        <chart:TextAnnotation.LabelStyle>
+                            <chart:ChartAnnotationLabelStyle TextColor="White" FontSize="20" HorizontalTextAlignment="End"/>
+                        </chart:TextAnnotation.LabelStyle>
+                    </chart:TextAnnotation>
+                    <chart:TextAnnotation X1="1990-12-31" Y1="30" Text="JAPAN">
+                        <chart:TextAnnotation.LabelStyle>
+                            <chart:ChartAnnotationLabelStyle TextColor="White" FontSize="20"/>
+                        </chart:TextAnnotation.LabelStyle>
+                    </chart:TextAnnotation>
+                    <chart:TextAnnotation X1="1917-12-31" Y1="{OnPlatform Android=40,iOS=40,Default=43}" Text="UK">
+                        <chart:TextAnnotation.LabelStyle>
+                            <chart:ChartAnnotationLabelStyle TextColor="White" FontSize="20"/>
+                        </chart:TextAnnotation.LabelStyle>
+                    </chart:TextAnnotation>
+                    <chart:TextAnnotation X1="1913-12-31" Y1="40" x:Name="textAnnotation">
+                        <chart:TextAnnotation.LabelStyle>
+                            <chart:ChartAnnotationLabelStyle TextColor="White" HorizontalTextAlignment="End" VerticalTextAlignment="End"/>
+                        </chart:TextAnnotation.LabelStyle>
+                    </chart:TextAnnotation>
+
+                    <chart:EllipseAnnotation X1="1990-01-01" Y1="33" Fill="#FFC943" Stroke="#FFC943" IsVisible="{OnPlatform Android='False',iOS='False'}"/>
+                    <chart:LineAnnotation X1="1990-01-01" Y1="33" X2="1990-01-01" Y2="45" Stroke="#FFC943" IsVisible="{OnPlatform Android='False',iOS='False'}"/>
+                    <chart:TextAnnotation X1="1980-01-01" Y1="45" x:Name="japanText" >
+                        <chart:TextAnnotation.LabelStyle>
+                            <chart:ChartAnnotationLabelStyle HorizontalTextAlignment="End" VerticalTextAlignment="Start" Background="White" Stroke="#FFC943" StrokeWidth="2"/>
+                        </chart:TextAnnotation.LabelStyle>
+                    </chart:TextAnnotation>
+
+                    <chart:ViewAnnotation X1="{OnPlatform Android='100',iOS='100',Default='150'}" Y1="{OnPlatform Android='40',iOS='40',Default='120'}" CoordinateUnit="Pixel">
+                        <chart:ViewAnnotation.View>
+                            <Image Source="ship.png" HeightRequest="{OnPlatform Android='130',iOS='130',Default='300'}" WidthRequest="{OnPlatform Android='280',iOS='280',Default='400'}"/>
+                        </chart:ViewAnnotation.View>
+                    </chart:ViewAnnotation>
+
+                    <chart:TextAnnotation X1="1950-01-01" Y1="{OnPlatform Android='75',iOS='75',Default='78'}" Text="Merchandise Export Share 1900-2022">
+                        <chart:TextAnnotation.LabelStyle>
+                            <chart:ChartAnnotationLabelStyle HorizontalTextAlignment="End" VerticalTextAlignment="End" FontSize="{OnPlatform Android='12',iOS='12',Default='16'}" FontAttributes="Bold" Background="#FFC943"/>
+                        </chart:TextAnnotation.LabelStyle>
+                    </chart:TextAnnotation>
+            </chart:SfCartesianChart.Annotations>
+        </chart:SfCartesianChart>
+        </Border>
+    </Grid>
+
+</ContentPage>
