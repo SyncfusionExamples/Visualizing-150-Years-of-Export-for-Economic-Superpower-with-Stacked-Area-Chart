@@ -30,32 +30,28 @@
                 <chart:StackingAreaSeries ItemsSource="{Binding ExportData}" x:Name="series"
                                       XBindingPath="Year"
                                       YBindingPath="China"
-                                      Fill="#e64d5c"                                                                         
-                                     />
+                                      Fill="#e64d5c"/>
 
                 <chart:StackingAreaSeries ItemsSource="{Binding ExportData }"
                                        XBindingPath="Year"
                                        YBindingPath="US"
-                                       Fill="#008080"                                       
-                                       />
-                
+                                       Fill="#008080"/>
+
                 <chart:StackingAreaSeries ItemsSource="{Binding ExportData }"
                                        XBindingPath="Year"
                                        YBindingPath="Germany"
-                                       Fill="#DAA520"                                       
-                                      />
-                
+                                       Fill="#DAA520"/>
+
                 <chart:StackingAreaSeries ItemsSource="{Binding ExportData }"
                                        XBindingPath="Year"                         
                                        YBindingPath="Japan"
-                                       Fill="#FFD700"                                                                                                                     
-                                      />
-                
+                                       Fill="#FFD700"/>
+
                 <chart:StackingAreaSeries ItemsSource="{Binding ExportData }"
                                        XBindingPath="Year"
                                        YBindingPath="UK"
-                                       Fill="#4682B4"                                                                               
-                                       />
+                                       Fill="#4682B4"/>
+
                 <chart:SfCartesianChart.Annotations>
                     <chart:TextAnnotation X1="2010-12-31" Y1="6" Text="CHINA">
                         <chart:TextAnnotation.LabelStyle>

@@ -15,10 +15,5 @@ namespace StackedAreaBlog
         public double Japan { get; set; }
         public double China { get; set; }
 
-
-        public ExportModel()
-        {
-
-        }
     }
 }
